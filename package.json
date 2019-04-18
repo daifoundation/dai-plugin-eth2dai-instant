@@ -1,0 +1,18 @@
+{
+  "name": "dai-plugin-eth2dai-direct",
+  "version": "1.0.0",
+  "description": "A dai.js plugin for atomic trading on maker otc",
+  "main": "index.js",
+  "scripts": {
+    "test": "./scripts/run-testchain.sh --ci jest --watch --runInBand --config ./test/config/jestDefaultConfig.json"
+  },
+  "devDependencies": {
+    "jest": "^24.7.1"
+  },
+  "dependencies": {
+    "@makerdao/currency": "^0.9.3",
+    "@makerdao/services-core": "^0.9.5",
+    "ethers": "^4.0.27",
+    "lodash.values": "^4.3.0"
+  }
+}
