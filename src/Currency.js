@@ -1,4 +1,3 @@
-import tokens from '../../contracts/tokens';
 import values from 'lodash.values';
 
 import {
@@ -6,6 +5,14 @@ import {
   createCurrencyRatio,
   createGetCurrency
 } from '@makerdao/currency';
+
+const tokens = {
+  DAI: 'DAI',
+  MKR: 'MKR',
+  WETH: 'WETH',
+  PETH: 'PETH',
+  ETH: 'ETH'
+};
 
 export const currencies = values(tokens).reduce(
   (output, symbol) => {

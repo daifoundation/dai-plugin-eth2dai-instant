@@ -6,15 +6,12 @@
     "text-summary"
   ],
   "collectCoverageFrom": [
-    "lib/**/*.js",
-    "src/**/*.js"
+    "src/*.js"
   ],
   "globalSetup": "<rootDir>/test/setup-global.js",
   "roots": [
-    "lib",
     "src",
     "test"
   ],
-  "setupFilesAfterEnv": ["<rootDir>/test/setup-test.js"],
-  "testPathIgnorePatterns": ["<rootDir>/node_modules/", "<rootDir>/test/integration/", "<rootDir>/lib/dai-plugin-mcd/test/integration/"]
+  "setupFilesAfterEnv": ["<rootDir>/test/setup-test.js"]
 }

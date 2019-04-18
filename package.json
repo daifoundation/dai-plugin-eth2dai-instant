@@ -4,15 +4,32 @@
   "description": "A dai.js plugin for atomic trading on maker otc",
   "main": "index.js",
   "scripts": {
-    "test": "./scripts/run-testchain.sh --ci jest --watch --runInBand --config ./test/config/jestDefaultConfig.json"
+    "test": "jest --watch --runInBand --config ./test/config/jestDefaultConfig.json"
   },
   "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-proposal-decorators": "^7.4.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
+    "@babel/plugin-proposal-function-sent": "^7.2.0",
+    "@babel/plugin-proposal-numeric-separator": "^7.2.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/runtime": "^7.4.3",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.7.1",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-module-resolver": "^3.2.0",
     "jest": "^24.7.1"
   },
   "dependencies": {
     "@makerdao/currency": "^0.9.3",
     "@makerdao/services-core": "^0.9.5",
     "ethers": "^4.0.27",
+    "isomorphic-fetch": "^2.2.1",
     "lodash.values": "^4.3.0"
   }
 }
