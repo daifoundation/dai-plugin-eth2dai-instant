@@ -1,22 +1,22 @@
 import { 
-  buildTestService,
   createDai,
   getNewAccount,
   placeLimitOrder,
   setProxyAccount
 } from './helpers/helpers';
+import Maker from '@makerdao/dai';
 import Eth2DaiDirectService from '../src/Eth2DaiDirectService';
 import TestAccountProvider from './helpers/TestAccountProvider';
 
-let service, proxyAccount, newAccount;
-
-// switch test to use maker instance
+let maker, service, proxyAccount, newAccount;
 
 async function buildTestEth2DaiDirectService() {
-  // service = buildTestService('exchange', {
-  //   exchange: 'Eth2DaiDirect'
-  // });
-  // await service.manager().authenticate();
+  maker = await Maker.create('test', {
+    exchange: Eth2DaiDirectService,
+    log: false
+  });
+  await maker.authenticate();
+  service = maker.service('exchange');
 }
 
 function proxy() {

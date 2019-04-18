@@ -1,27 +1,8 @@
+import assert from 'assert';
 import fetch from 'isomorphic-fetch';
 import accounts from './testAccounts';
 import { utils } from 'ethers';
 import { DAI, WETH } from '../../src/Currency';
-
-function buildTestContainer(settings = {}) {
-  const config = {
-    web3: {
-      provider: {
-        type: 'HTTP',
-        url: 'http://localhost:2000'
-      },
-      pollingInterval: 50
-    },
-    log: false
-  };;
-
-  return new DefaultServiceProvider(merge({}, config, settings));
-}
-
-export function buildTestService(name, settings = {}) {
-  if (!settings[name]) settings[name] = true;
-  return buildTestContainer(settings).service(name);
-}
 
 let requestCount = 0;
 
@@ -49,7 +30,7 @@ async function mineBlocks(service, count) {
   if (!count) count = web3Service.confirmedBlockCount() + 2;
 
   assert(
-    WAIT_AFTER_MINE_CALL > web3Service._pollingInterval * 2,
+    250 > web3Service._pollingInterval * 2,
     'mineBlocks may not work well; pollingInterval is too long'
   );
 
@@ -57,7 +38,7 @@ async function mineBlocks(service, count) {
 
   for (let i = 0; i < count; i++) {
     await callGanache('evm_mine');
-    await promiseWait(WAIT_AFTER_MINE_CALL);
+    await promiseWait(250);
   }
 
   const newNumber = web3Service.blockNumber();

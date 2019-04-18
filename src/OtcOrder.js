@@ -1,5 +1,5 @@
 import { utils } from 'ethers';
-import { DAI } from '../../eth/Currency';
+import { DAI } from './Currency';
 
 export default class OtcOrder {
   fillAmount() {

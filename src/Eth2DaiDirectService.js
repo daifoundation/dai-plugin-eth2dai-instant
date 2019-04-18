@@ -1,7 +1,6 @@
 import { PrivateService } from '@makerdao/services-core';
 import { getCurrency, WETH, DAI, ETH } from './Currency';
-import contracts from '../../../contracts/contracts';
-import { OasisSellOrder, OasisBuyOrder } from './OasisOrder';
+import { OtcSellOrder, OtcBuyOrder } from './OtcOrder';
 
 export default class Eth2DaiDirect extends PrivateService {
   constructor(name = 'exchange') {
@@ -33,7 +32,7 @@ export default class Eth2DaiDirect extends PrivateService {
     const options = this._buildOptions(amount, sell, method);
 
     if (proxy) await this.get('allowance').requireAllowance(sellToken, proxy);
-    return OasisSellOrder.build(
+    return OtcSellOrder.build(
       this._oasisDirect(),
       method,
       params,
@@ -59,7 +58,7 @@ export default class Eth2DaiDirect extends PrivateService {
     const options = this._buildOptions(amount, sell, method, maxPayAmount);
 
     if (proxy) await this.get('allowance').requireAllowance(sellToken, proxy);
-    return OasisBuyOrder.build(
+    return OtcBuyOrder.build(
       this._oasisDirect(),
       method,
       params,
@@ -189,11 +188,11 @@ export default class Eth2DaiDirect extends PrivateService {
   }
 
   _oasisDirect() {
-    return this.get('smartContract').getContractByName(contracts.OASIS_PROXY);
+    return this.get('smartContract').getContractByName('OASIS_PROXY');
   }
 
   _otc() {
-    return this.get('smartContract').getContractByName(contracts.MAKER_OTC);
+    return this.get('smartContract').getContractByName('MAKER_OTC');
   }
 
   _valueForContract(amount, symbol) {
