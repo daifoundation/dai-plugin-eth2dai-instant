@@ -5,15 +5,18 @@ import {
   placeLimitOrder,
   setProxyAccount
 } from './helpers/helpers';
+import Eth2DaiDirectService from '../src/Eth2DaiDirectService';
 import TestAccountProvider from './helpers/TestAccountProvider';
 
 let service, proxyAccount, newAccount;
 
+// switch test to use maker instance
+
 async function buildTestEth2DaiDirectService() {
-  service = buildTestService('exchange', {
-    exchange: 'Eth2DaiDirect'
-  });
-  await service.manager().authenticate();
+  // service = buildTestService('exchange', {
+  //   exchange: 'Eth2DaiDirect'
+  // });
+  // await service.manager().authenticate();
 }
 
 function proxy() {
