@@ -19,7 +19,7 @@
     "babel-jest": "^24.7.1",
     "babel-loader": "^8.0.5",
     "babel-plugin-module-resolver": "^3.2.0",
-    "ethers": "^4.0.27",
+    "ethers": "^3.0.15",
     "isomorphic-fetch": "^2.2.1",
     "jest": "^24.7.1"
   },

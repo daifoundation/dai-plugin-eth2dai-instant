@@ -6,6 +6,10 @@ import { DAI, WETH } from '../../src/Currency';
 
 let requestCount = 0;
 
+function promiseWait(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 function callGanache(method, params = []) {
   return fetch('http://localhost:2000', {
     method: 'POST',
@@ -71,10 +75,13 @@ export async function placeLimitOrder(otcService, sellDai) {
   const position = sellDai ? 0 : 1;
 
   await wethToken.deposit('1');
+  const balance = await wethToken.balanceOf(otcService.get('web3').currentAddress());
+  console.log('balance:', balance.toString());
   await wethToken.approveUnlimited(oasisAddress);
   await daiToken.approveUnlimited(oasisAddress);
-
-  return offer(
+  console.log(utils.parseEther('0.5'));
+  console.log(WETH('0.5').toBigNumber());
+  return await offer(
     otcService,
     utils.parseEther('0.5'),
     sellToken,
@@ -96,6 +103,7 @@ async function offer(
     .get('smartContract')
     .getContractByName('MAKER_OTC');
 
+  console.log(buyAmount.toString());
   const tx = await oasisContract.offer(
     payAmount,
     payTokenAddress,

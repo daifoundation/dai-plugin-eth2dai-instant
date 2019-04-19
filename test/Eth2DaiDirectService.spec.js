@@ -20,7 +20,7 @@ async function buildTestEth2DaiDirectService() {
 }
 
 function proxy() {
-  return service.get('proxy').currentProxy();
+  return maker.service('proxy').currentProxy();
 }
 
 beforeAll(async () => {
@@ -30,7 +30,6 @@ beforeAll(async () => {
 
 beforeEach(async () => {
   jest.setTimeout(15000);
-  await buildTestEth2DaiDirectService();
 });
 
 describe('format contract call', () => {
@@ -135,6 +134,7 @@ describe('values from otc', () => {
 
   test('get buy amount', async () => {
     const buyAmount = await service.getBuyAmount('WETH', 'DAI', '0.01');
+    console.log(buyAmount.toString());
     expect(buyAmount.toString()).toEqual('500000000000000');
   });
 
