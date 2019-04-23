@@ -1,7 +1,12 @@
 {
   "name": "dai-plugin-eth2dai-direct",
   "version": "1.0.0",
+  "license": "MIT",
   "description": "A dai.js plugin for atomic trading on maker otc",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/makerdao/dai-plugin-eth2dai-direct.git"
+  },
   "main": "index.js",
   "scripts": {
     "build": "./scripts/build.sh",
@@ -24,11 +29,19 @@
     "copyfiles": "^2.1.0",
     "ethers": "^3.0.15",
     "isomorphic-fetch": "^2.2.1",
-    "jest": "^24.7.1"
+    "jest": "^24.7.1",
+    "lint-staged": "^8.1.5",
+    "prettier": "^1.17.0"
   },
   "dependencies": {
     "@makerdao/currency": "^0.9.3",
     "@makerdao/services-core": "^0.9.5",
     "lodash.values": "^4.3.0"
+  },
+  "lint-staged": {
+    "*.{js,json}": [
+      "prettier --write --single-quote",
+      "git add"
+    ]
   }
 }
