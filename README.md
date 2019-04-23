@@ -7,7 +7,7 @@ This plugin can be injected into [dai.js](https://github.com/makerdao/dai.js) to
 ___
 ## Usage
 
-The `Eth2DaiDirectService` normalizes the syntax across different types of trades, so the main functionality is represented simply by `sell` and `buy`. The difference between these two functions is the value you're defining explicitly; for example, a user might want to `sell` one hundred Dai for however much ETH it can buy (or vice versa).
+The `Eth2DaiDirectService` normalizes the syntax across different types of trades, so the main functionality is represented simply by `sell` and `buy`. The difference between these two functions is the value that's defined explicitly; for example, a user might want to `sell` one hundred Dai for however much ETH that can buy (or vice versa).
 
 **The valid token symbols for either side of the trade are `'ETH'`, `'WETH'`, `'PETH'`, and `'DAI'`.**
 
@@ -56,6 +56,7 @@ ___
 
 ```
 $ git clone https://github.com/makerdao/dai-plugin-eth2dai-direct.git
+$ cd dai-plugin-eth2dai-direct/
 $ yarn
 $ git submodule update --init --recursive
 ```

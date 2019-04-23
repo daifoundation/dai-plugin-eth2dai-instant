@@ -6,9 +6,8 @@ import {
 } from './helpers/helpers';
 import Maker from '@makerdao/dai';
 import Eth2DaiDirectService from '../src/Eth2DaiDirectService';
-import TestAccountProvider from './helpers/TestAccountProvider';
 
-let maker, service, proxyAccount, newAccount;
+let maker, service, newAccount;
 
 async function buildTestEth2DaiDirectService() {
   maker = await Maker.create('test', {
@@ -141,7 +140,6 @@ describe('values from otc', () => {
 
   test('get buy amount', async () => {
     const buyAmount = await service.getBuyAmount('WETH', 'DAI', '0.01');
-    console.log(buyAmount.toString());
     expect(buyAmount.toString()).toEqual('500000000000000');
   });
 
@@ -162,14 +160,6 @@ describe('values from otc', () => {
 });
 
 describe('trade with existing dsproxy', () => {
-  beforeAll(async () => {
-    if (!proxyAccount) {
-      proxyAccount = TestAccountProvider.nextAccount();
-    }
-    await setProxyAccount(service, proxyAccount);
-    if (!(await proxy())) await service.get('proxy').build();
-  });
-
   describe('sell dai', () => {
     beforeEach(async () => {
       await placeLimitOrder(service);
@@ -216,7 +206,6 @@ describe('trade with existing dsproxy', () => {
 describe('create dsproxy and execute', () => {
   beforeEach(async () => {
     newAccount = await getNewAccount(service.get('proxy'));
-    await placeLimitOrder(service, true);
     await setProxyAccount(service, newAccount);
   });
 

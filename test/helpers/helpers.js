@@ -77,8 +77,6 @@ export async function placeLimitOrder(otcService, sellDai) {
   const address = otcService.get('web3').currentAddress();
   const balance = await daiToken.balanceOf(address);
 
-  console.log('dai balance:', balance.toString());
-  console.log('address:', address);
   await wethToken.approveUnlimited(oasisAddress);
   await wethToken.deposit('1');
   await daiToken.approveUnlimited(oasisAddress);
@@ -104,7 +102,6 @@ async function offer(
     .get('smartContract')
     .getContractByName('MAKER_OTC');
 
-  console.log(buyAmount.toString());
   const tx = await oasisContract.offer(
     payAmount,
     payTokenAddress,
