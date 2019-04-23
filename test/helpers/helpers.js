@@ -74,13 +74,14 @@ export async function placeLimitOrder(otcService, sellDai) {
   const value = sellDai ? utils.parseEther('2.0') : utils.parseEther('10.0');
   const position = sellDai ? 0 : 1;
 
-  await wethToken.deposit('1');
-  const balance = await wethToken.balanceOf(otcService.get('web3').currentAddress());
-  console.log('balance:', balance.toString());
+  const address = otcService.get('web3').currentAddress();
+  const balance = await daiToken.balanceOf(address);
+
+  console.log('dai balance:', balance.toString());
+  console.log('address:', address);
   await wethToken.approveUnlimited(oasisAddress);
+  await wethToken.deposit('1');
   await daiToken.approveUnlimited(oasisAddress);
-  console.log(utils.parseEther('0.5'));
-  console.log(WETH('0.5').toBigNumber());
   return await offer(
     otcService,
     utils.parseEther('0.5'),

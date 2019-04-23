@@ -4,7 +4,8 @@
   "description": "A dai.js plugin for atomic trading on maker otc",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watch --runInBand --config ./test/config/jestDefaultConfig.json"
+    "test": "./scripts/run-testchain.sh --ci jest --watch --runInBand --config ./test/config/jestDefaultConfig.json",
+    "test:net": "./scripts/run-testchain.sh"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.3",
