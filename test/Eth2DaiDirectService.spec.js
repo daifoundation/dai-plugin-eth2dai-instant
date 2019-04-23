@@ -11,7 +11,8 @@ let maker, service, newAccount;
 
 async function buildTestEth2DaiDirectService() {
   maker = await Maker.create('test', {
-    exchange: Eth2DaiDirectService,
+    additionalServices: ['exchange'],
+    exchange: [Eth2DaiDirectService],
     log: false,
     web3: {
       provider: {
