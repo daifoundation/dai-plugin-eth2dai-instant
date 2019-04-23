@@ -13,7 +13,14 @@ let maker, service, proxyAccount, newAccount;
 async function buildTestEth2DaiDirectService() {
   maker = await Maker.create('test', {
     exchange: Eth2DaiDirectService,
-    log: false
+    log: false,
+    web3: {
+      provider: {
+        type: 'HTTP',
+        url: 'http://localhost:2000'
+      },
+      pollingInterval: 50
+    }
   });
   await maker.authenticate();
   service = maker.service('exchange');
