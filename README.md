@@ -5,13 +5,31 @@ Eth2Dai Direct Plugin
 This plugin can be injected into [dai.js](https://github.com/makerdao/dai.js) to execute atomic trades on [Eth2Dai](https://eth2dai.com/). It uses the contract FKA [Oasis Direct Proxy](https://github.com/makerdao/oasis-direct-proxy) to interact with the underlying [Maker OTC](https://github.com/makerdao/maker-otc) contract.
 
 ___
-## Usage
+### Usage
 
-The `Eth2DaiDirectService` normalizes the syntax across different types of trades, so the main functionality is represented simply by `sell` and `buy`. The difference between these two functions is the value that's defined explicitly; for example, a user might want to `sell` one hundred Dai for however much ETH that can buy (or vice versa).
+To configure the [SDK](https://www.npmjs.com/package/@makerdao/dai) with this plugin:
+```
+$ yarn add @makerdao/dai
+$ yarn add @makerdao/dai-plugin-eth2dai-direct
+```
+```js
+import Maker from '@makerdao/dai';
+import Eth2DaiDirect from '@makerdao/dai-plugin-eth2dai-direct';
 
-**The valid token symbols for either side of the trade are `'ETH'`, `'WETH'`, `'PETH'`, and `'DAI'`.**
+const maker = await Maker.create('browser', {
+  plugins: [Eth2DaiDirect]
+});
+await maker.authenticate();
+await maker.service('exchange').sell('ETH', 'DAI', '0.5');
+```
 
-Please refer to the [dai.js documentation](https://github.com/makerdao/dai.js/wiki) for more details on how to configure this plugin with the SDK.
+Note that the `'browser'` preset above is only an example, not a specific requirement of the Eth2Dai Direct plugin. For more information about available presets, configuration options, and additional plugins, check the [dai.js docs](https://github.com/makerdao/dai.js/wiki).
+
+___
+
+The `Eth2DaiDirectService` normalizes the syntax across different types of trades, so the main functionality is represented simply by `sell` and `buy`. The difference between these two functions is the value defined explicitly as a parameter; for example, a user might want to `sell` one hundred Dai for however much ETH that Dai can buy.
+
+**The valid token symbols for either side of any trade are `'ETH'`, `'WETH'`, `'PETH'`, and `'DAI'`.**
 
 ___
 
@@ -29,7 +47,7 @@ maker.service('exchange').buy('DAI', 'ETH', 150);
 
 ____
 
-The service can also query the OTC contract for the buy amount for a supplied pay amount and the pay amount for a supplied buy amount. If the value of the exchange deviates from this estimate by more than a configurable `slippage limit`, the trade will be reverted.
+The service can also query the OTC contract for the buy amount for a supplied pay amount and the pay amount for a supplied buy amount. If the price of the exchange deviates from this estimate by more than a configurable `slippage limit`, the trade will be reverted.
 
 ___
 
@@ -52,7 +70,7 @@ maker.service('exchange').setSlippageLimit(0.05);
 ```
 ___
 
-## Development
+### Development
 
 ```
 $ git clone https://github.com/makerdao/dai-plugin-eth2dai-direct.git

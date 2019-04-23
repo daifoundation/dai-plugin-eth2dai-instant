@@ -5,20 +5,15 @@ import {
   setProxyAccount
 } from './helpers/helpers';
 import Maker from '@makerdao/dai';
-import Eth2DaiDirectService from '../src/Eth2DaiDirectService';
+import Eth2DaiDirect from '../src/index';
 
 let maker, service, newAccount;
 
 async function buildTestEth2DaiDirectService() {
   maker = await Maker.create('test', {
-    additionalServices: ['exchange'],
-    exchange: [Eth2DaiDirectService],
+    plugins: [Eth2DaiDirect],
     log: false,
     web3: {
-      provider: {
-        type: 'HTTP',
-        url: 'http://localhost:2000'
-      },
       pollingInterval: 50
     }
   });
