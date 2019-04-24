@@ -1,5 +1,5 @@
 {
-  "name": "dai-plugin-eth2dai-direct",
+  "name": "@makerdao/dai-plugin-eth2dai-direct",
   "version": "0.1.0",
   "license": "MIT",
   "description": "A dai.js plugin for atomic trading on maker otc",
@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/makerdao/dai-plugin-eth2dai-direct.git"
   },
-  "main": "./src/index.js",
+  "main": "./dist/src/index.js",
   "scripts": {
     "build": "./scripts/build.sh",
     "test": "./scripts/run-testchain.sh --ci jest --watch --runInBand --config ./test/config/jestDefaultConfig.json",

@@ -9,9 +9,3 @@ else
 fi
 
 babel src --out-dir ./dist/src
-
-copyfiles \
-  README.md \
-  LICENSE \
-  package.json \
-  dist
