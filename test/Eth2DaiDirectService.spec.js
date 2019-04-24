@@ -5,7 +5,7 @@ import {
   setProxyAccount
 } from './helpers/helpers';
 import Maker from '@makerdao/dai';
-import Eth2DaiDirect from '../src/index';
+import Eth2DaiDirect from '../dist/src/index';
 
 let maker, service, newAccount;
 

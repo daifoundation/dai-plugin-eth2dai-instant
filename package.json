@@ -10,7 +10,7 @@
   "main": "./dist/src/index.js",
   "scripts": {
     "build": "./scripts/build.sh",
-    "test": "./scripts/run-testchain.sh --ci jest --watch --runInBand --config ./test/config/jestDefaultConfig.json",
+    "test": "./scripts/build.sh && ./scripts/run-testchain.sh --ci jest --watch --runInBand --config ./test/config/jestDefaultConfig.json",
     "test:net": "./scripts/run-testchain.sh"
   },
   "devDependencies": {
