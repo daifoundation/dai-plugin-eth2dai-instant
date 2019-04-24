@@ -8,14 +8,11 @@ before_cache:
 - rm -rf node_modules/secp256k1/build
 cache:
   npm: true
-  directories:
-  - nix
   timeout: 9000
 before_install:
-- . scripts/install-dapptools.sh
 - npm i -g npm@latest yarn
 install:
 - yarn
 before_script:
 script:
-- yarn test
+- yarn test -s default -u
