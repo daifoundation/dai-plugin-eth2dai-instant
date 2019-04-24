@@ -89,7 +89,7 @@ $ git submodule update --init --recursive
 
 [license]: https://img.shields.io/badge/license-MIT-blue.svg
 [license-url]: https://github.com/makerdao/dai-plugin-eth2dai-direct/blob/master/LICENSE
-[build]: https://travis-ci.com/makerdao/dai-plugin-eth2dai-direct.svg?token=7qKLu97qQDDMKfaxt318&branch=master
+[build]: https://travis-ci.com/makerdao/dai-plugin-eth2dai-direct.svg?branch=master
 [build-url]: https://travis-ci.com/makerdao/dai-plugin-eth2dai-direct
 [npm]: https://img.shields.io/npm/v/@makerdao/dai-plugin-eth2dai-direct.svg?style=flat
 [npm-url]: https://www.npmjs.com/package/@makerdao/dai-plugin-eth2dai-direct
