@@ -20,11 +20,13 @@ $ yarn add @makerdao/dai-plugin-eth2dai-direct
 import Maker from '@makerdao/dai';
 import Eth2DaiDirect from '@makerdao/dai-plugin-eth2dai-direct';
 
-const maker = await Maker.create('browser', {
-  plugins: [Eth2DaiDirect]
-});
-await maker.authenticate();
-await maker.service('exchange').sell('ETH', 'DAI', '0.5');
+async function createMakerAndSellEth(amount) {
+  const maker = await Maker.create('browser', {
+    plugins: [Eth2DaiDirect]
+  });
+  await maker.authenticate();
+  await maker.service('exchange').sell('ETH', 'DAI', amount);
+}
 ```
 
 Note that the `'browser'` preset above is only an example, not a specific requirement of the Eth2Dai Direct plugin. For more information about available presets, configuration options, and additional plugins, check the [dai.js docs](https://github.com/makerdao/dai.js/wiki).
