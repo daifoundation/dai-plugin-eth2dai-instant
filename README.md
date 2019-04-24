@@ -4,8 +4,9 @@ Eth2Dai Direct Plugin
 
 This plugin can be injected into [dai.js](https://github.com/makerdao/dai.js) to execute atomic trades on [Eth2Dai](https://eth2dai.com/). It uses the contract FKA [Oasis Direct Proxy](https://github.com/makerdao/oasis-direct-proxy) to interact with the underlying [Maker OTC](https://github.com/makerdao/maker-otc) contract.
 
-[![GitHub License][license]][license-url]
+[![NPM][npm]][npm-url]
 [![Build Status][build]][build-url]
+[![GitHub License][license]][license-url]
 
 ___
 ### Usage
@@ -90,3 +91,5 @@ $ git submodule update --init --recursive
 [license-url]: https://github.com/makerdao/dai-plugin-eth2dai-direct/blob/master/LICENSE
 [build]: https://travis-ci.com/makerdao/dai-plugin-eth2dai-direct.svg?token=7qKLu97qQDDMKfaxt318&branch=master
 [build-url]: https://travis-ci.com/makerdao/dai-plugin-eth2dai-direct
+[npm]: https://img.shields.io/npm/v/@makerdao/dai-plugin-eth2dai-direct.svg?style=flat
+[npm-url]: https://www.npmjs.com/package/@makerdao/dai-plugin-eth2dai-direct
