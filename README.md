@@ -1,5 +1,5 @@
 <h1 align="center">
-Eth2Dai Direct Plugin
+Eth2Dai Instant Plugin
 </h1>
 
 This plugin can be injected into [dai.js](https://github.com/makerdao/dai.js) to execute atomic trades on [Eth2Dai](https://eth2dai.com/). It uses the contract FKA [Oasis Direct Proxy](https://github.com/makerdao/oasis-direct-proxy) to interact with the underlying [Maker OTC](https://github.com/makerdao/maker-otc) contract.
@@ -14,26 +14,26 @@ ___
 To configure the [SDK](https://www.npmjs.com/package/@makerdao/dai) with this plugin:
 ```
 $ yarn add @makerdao/dai
-$ yarn add @makerdao/dai-plugin-eth2dai-direct
+$ yarn add @makerdao/dai-plugin-eth2dai-instant
 ```
 ```js
 import Maker from '@makerdao/dai';
-import Eth2DaiDirect from '@makerdao/dai-plugin-eth2dai-direct';
+import Eth2DaiInstant from '@makerdao/dai-plugin-eth2dai-instant';
 
 async function createMakerAndSellEth(amount) {
   const maker = await Maker.create('browser', {
-    plugins: [Eth2DaiDirect]
+    plugins: [Eth2DaiInstant]
   });
   await maker.authenticate();
   await maker.service('exchange').sell('ETH', 'DAI', amount);
 }
 ```
 
-Note that the `'browser'` preset above is only an example, not a specific requirement of the Eth2Dai Direct plugin. For more information about available presets, configuration options, and additional plugins, check the [dai.js docs](https://github.com/makerdao/dai.js/wiki).
+Note that the `'browser'` preset above is only an example, not a specific requirement of the Eth2Dai Instant plugin. For more information about available presets, configuration options, and additional plugins, check the [dai.js docs](https://github.com/makerdao/dai.js/wiki).
 
 ___
 
-The `Eth2DaiDirectService` normalizes the syntax across different types of trades, so the main functionality is represented simply by `sell` and `buy`. The difference between these two functions is the value defined explicitly as a parameter; for example, a user might want to `sell` one hundred Dai for however much ETH that Dai can buy.
+The `Eth2DaiInstantService` normalizes the syntax across different types of trades, so the main functionality is represented simply by `sell` and `buy`. The difference between these two functions is the value defined explicitly as a parameter; for example, a user might want to `sell` one hundred Dai for however much ETH that Dai can buy.
 
 **The valid token symbols for either side of any trade are `'ETH'`, `'WETH'`, `'PETH'`, and `'DAI'`.**
 
@@ -79,8 +79,8 @@ ___
 ### Development
 
 ```
-$ git clone https://github.com/makerdao/dai-plugin-eth2dai-direct.git
-$ cd dai-plugin-eth2dai-direct/
+$ git clone https://github.com/makerdao/dai-plugin-eth2dai-instant.git
+$ cd dai-plugin-eth2dai-instant/
 $ yarn
 $ git submodule update --init --recursive
 ```
@@ -90,8 +90,8 @@ $ git submodule update --init --recursive
 * Build for publication with `yarn build`
 
 [license]: https://img.shields.io/badge/license-MIT-blue.svg
-[license-url]: https://github.com/makerdao/dai-plugin-eth2dai-direct/blob/master/LICENSE
-[build]: https://travis-ci.com/makerdao/dai-plugin-eth2dai-direct.svg?branch=master
-[build-url]: https://travis-ci.com/makerdao/dai-plugin-eth2dai-direct
-[npm]: https://img.shields.io/npm/v/@makerdao/dai-plugin-eth2dai-direct.svg?style=flat
-[npm-url]: https://www.npmjs.com/package/@makerdao/dai-plugin-eth2dai-direct
+[license-url]: https://github.com/makerdao/dai-plugin-eth2dai-instant/blob/master/LICENSE
+[build]: https://travis-ci.com/makerdao/dai-plugin-eth2dai-instant.svg?branch=master
+[build-url]: https://travis-ci.com/makerdao/dai-plugin-eth2dai-instant
+[npm]: https://img.shields.io/npm/v/@makerdao/dai-plugin-eth2dai-instant.svg?style=flat
+[npm-url]: https://www.npmjs.com/package/@makerdao/dai-plugin-eth2dai-instant

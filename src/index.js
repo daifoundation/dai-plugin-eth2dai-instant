@@ -1,11 +1,11 @@
-import Eth2DaiDirectService from './Eth2DaiDirectService';
+import Eth2DaiInstantService from './Eth2DaiInstantService';
 
 export default {
   addConfig: function(config) {
     return {
       ...config,
       additionalServices: ['exchange'],
-      exchange: [Eth2DaiDirectService]
+      exchange: [Eth2DaiInstantService]
     }
   }
 }

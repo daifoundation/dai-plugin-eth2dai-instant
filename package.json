@@ -1,11 +1,11 @@
 {
-  "name": "@makerdao/dai-plugin-eth2dai-direct",
-  "version": "0.1.0",
+  "name": "@makerdao/dai-plugin-eth2dai-instant",
+  "version": "0.1.1",
   "license": "MIT",
   "description": "A dai.js plugin for atomic trading on maker otc",
   "repository": {
     "type": "git",
-    "url": "https://github.com/makerdao/dai-plugin-eth2dai-direct.git"
+    "url": "https://github.com/makerdao/dai-plugin-eth2dai-instant.git"
   },
   "main": "./dist/src/index.js",
   "scripts": {

@@ -2,7 +2,7 @@ import { PrivateService } from '@makerdao/services-core';
 import { getCurrency, WETH, DAI, ETH } from './Currency';
 import { OtcSellOrder, OtcBuyOrder } from './OtcOrder';
 
-export default class Eth2DaiDirect extends PrivateService {
+export default class Eth2DaiInstant extends PrivateService {
   constructor(name = 'exchange') {
     super(name, [
       'proxy',
@@ -33,7 +33,7 @@ export default class Eth2DaiDirect extends PrivateService {
 
     if (proxy) await this.get('allowance').requireAllowance(sellToken, proxy);
     return OtcSellOrder.build(
-      this._oasisDirect(),
+      this._otcProxy(),
       method,
       params,
       this.get('transactionManager'),
@@ -59,7 +59,7 @@ export default class Eth2DaiDirect extends PrivateService {
 
     if (proxy) await this.get('allowance').requireAllowance(sellToken, proxy);
     return OtcBuyOrder.build(
-      this._oasisDirect(),
+      this._otcProxy(),
       method,
       params,
       this.get('transactionManager'),
@@ -187,7 +187,7 @@ export default class Eth2DaiDirect extends PrivateService {
       .address();
   }
 
-  _oasisDirect() {
+  _otcProxy() {
     return this.get('smartContract').getContractByName('OASIS_PROXY');
   }
 

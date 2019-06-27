@@ -5,13 +5,13 @@ import {
   setProxyAccount
 } from './helpers/helpers';
 import Maker from '@makerdao/dai';
-import Eth2DaiDirect from '../dist/src/index';
+import Eth2DaiInstant from '../dist/src/index';
 
 let maker, service, newAccount;
 
-async function buildTestEth2DaiDirectService() {
+async function buildTestEth2DaiInstantService() {
   maker = await Maker.create('test', {
-    plugins: [Eth2DaiDirect],
+    plugins: [Eth2DaiInstant],
     log: false,
     web3: {
       pollingInterval: 50
@@ -26,7 +26,7 @@ function proxy() {
 }
 
 beforeAll(async () => {
-  await buildTestEth2DaiDirectService();
+  await buildTestEth2DaiInstantService();
   await createDai(service);
 });
 
