@@ -1,6 +1,6 @@
 {
   "name": "@makerdao/dai-plugin-eth2dai-instant",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "description": "A dai.js plugin for atomic trading on maker otc",
   "repository": {
@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@makerdao/currency": "^0.9.5",
-    "@makerdao/services-core": "^0.9.7",
+    "@makerdao/services-core": "^0.9.8",
     "lodash.values": "^4.3.0"
   },
   "lint-staged": {
