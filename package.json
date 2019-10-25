@@ -1,6 +1,6 @@
 {
   "name": "@makerdao/dai-plugin-eth2dai-instant",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "license": "MIT",
   "description": "A dai.js plugin for atomic trading on maker otc",
   "repository": {
@@ -12,7 +12,7 @@
     "build": "./scripts/build.sh",
     "precommit": "lint-staged",
     "test": "./scripts/build.sh && ./scripts/run-testchain.sh -s default -u --ci jest --runInBand --config ./test/config/jestDefaultConfig.json",
-    "test:net": "./scripts/run-testchain.sh"
+    "test:net": "./scripts/run-testchain.sh -s default -u"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.3",
@@ -21,7 +21,8 @@
     "@babel/plugin-transform-runtime": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
     "@babel/runtime": "^7.4.3",
-    "@makerdao/dai": "^0.16.2",
+    "@makerdao/dai": "^0.18.6",
+    "@makerdao/testchain": "^0.2.14",
     "assert": "^1.4.1",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.7.1",
