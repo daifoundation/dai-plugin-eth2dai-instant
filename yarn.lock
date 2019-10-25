@@ -846,6 +846,15 @@
     babel-runtime "^6.26.0"
     bignumber.js "^8.1.1"
 
+"@makerdao/dai-plugin-eth2dai-instant@0.1.4":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@makerdao/dai-plugin-eth2dai-instant/-/dai-plugin-eth2dai-instant-0.1.4.tgz#aa81d07e0f1276257e0939da4ca0212c2d3c0983"
+  integrity sha512-eyseH1uaeDbhkuHvnVn+sWhEADVSgZfmgMogsU6uhxpmM1SYbESNLcpv5xqLuHe1U16jagioYZH6N6z7S4X4kQ==
+  dependencies:
+    "@makerdao/currency" "^0.9.5"
+    "@makerdao/services-core" "^0.9.8"
+    lodash.values "^4.3.0"
+
 "@makerdao/dai@^0.18.6":
   version "0.18.9"
   resolved "https://registry.yarnpkg.com/@makerdao/dai/-/dai-0.18.9.tgz#d33cba91d880d37420f2171414547988f6eb9081"
@@ -3714,7 +3723,7 @@ g-status@^2.0.2:
     matcher "^1.0.0"
     simple-git "^1.85.0"
 
-"ganache-cli@github:makerdao/ganache-cli#fix/gas-est-crash":
+ganache-cli@makerdao/ganache-cli#fix/gas-est-crash:
   version "6.4.3-beta.0"
   resolved "https://codeload.github.com/makerdao/ganache-cli/tar.gz/3e512b61da2479042627e6155231dcb038110650"
   dependencies:
